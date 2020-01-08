@@ -6,6 +6,12 @@ const createCalcZone = function(calcBtnList){
     container.classList.add("container");
     document.body.appendChild(container);
 
+    //left div
+    const leftDiv = document.createElement("div");
+    leftDiv.classList.add("leftDiv");
+    container.appendChild(leftDiv);
+    leftDiv.innerText = "left";
+
     //Operation and result view zone
     const viewZone = document.createElement("div");
     viewZone.classList.add("viewZone");
@@ -14,10 +20,18 @@ const createCalcZone = function(calcBtnList){
     let resultZone = document.createElement("div")
     resultZone.classList.add("resultZone");
     viewZone.appendChild(resultZone);
+    resultZone.innerText = "resultS";
 
     let inputZone = document.createElement("div")
-    resultZone.classList.add("inputZone");
+    inputZone.classList.add("inputZone");
     viewZone.appendChild(inputZone);
+    inputZone.innerText = "input";  
+
+    //left div
+    const rightDiv = document.createElement("div");
+    rightDiv.classList.add("rightDiv");
+    container.appendChild(rightDiv);
+    rightDiv.innerText = "right";
 
     //Interactive buttons zone
     const interactiveZone = document.createElement("div");
@@ -25,12 +39,16 @@ const createCalcZone = function(calcBtnList){
     container.appendChild(interactiveZone);
 
     calcBtnList.forEach(element => {
-       let calcBtn = document.createElement("div")
-       calcBtn.classList.add("item");
-       calcBtn.dataset.value = element;
-       calcBtn.innerText = element;
-       interactiveZone.appendChild(calcBtn);
+       let calcItem = document.createElement("div")
+       calcItem.classList.add("item");
+       interactiveZone.appendChild(calcItem);
 
+       let calcBtn = document.createElement("button")
+       calcBtn.classList.add("calcBtn");
+       calcBtn.innerText = element;
+       calcBtn.dataset.value = element; 
+       calcItem.appendChild(calcBtn);   
     });
+
 } 
 createCalcZone(calcBtnList);
