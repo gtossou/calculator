@@ -38,17 +38,16 @@
 	align-items: center;
 	font-size: 30px;
 	font-weight: bold;
-	border: 1px solid;
+	border: 1px outset;
+	background: azure;
 }
 
 .viewZone{
-	display: grid;
-	
+	display: grid;	
 	font-weight: bold;
 	justify-items: right;
 	align-items: center;
 	background-color: whitesmoke;
-	border: 1px solid;
 	row-gap: 10px;
 }
 
@@ -59,3 +58,29 @@
 	width: 80px;
 	border-radius: 5px;
 } 
+.inputOperation{
+	text-align: right;
+	width: 700px;
+	height: 40px;
+	font-size: 30px;
+	font-weight: bold;
+	border-style: none;
+	margin: 10px 60px 10px 50px;
+	border-radius: 5px;
+	position: relative;
+	font-family: "Orbitron";
+}
+
+.resultZone{
+	height: 50px;
+	text-align: right;
+	margin: 10px 60px 10px 50px;
+	border-radius: 5px;
+	position: relative;
+	font-size: 30px;
+	text-shadow: 1px 1px 2px aquamarine;
+}
+
+#btn_\=s{
+	background-color: aquamarine;
+}
