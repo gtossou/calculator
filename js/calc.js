@@ -150,15 +150,11 @@ const handleClickOnButton = function(event){
         //If there is already an intermediary result
         else{
             const splitted = inputCurrentValue.split(/[+-/*]+/);
-            console.log(splitted);
             lastValue = splitted[splitted.length-2];
-            console.log(lastValue);
             lastOperator = inputCurrentValue[(inputCurrentValue.length-1) - (lastValue.length+1)];
             parsedCurrentResult = parseFloat(resultCurrentValue.innerText);
             lastValue = lastValue.replace(/@/g,".");
-            console.log(lastValue);
             lastValue = parseFloat(lastValue);
-            console.log(lastValue);
             switch (lastOperator){
                 case "*":
                     resultCurrentValue.innerText = parseFloat(parsedCurrentResult*lastValue);
@@ -186,7 +182,6 @@ const handleClickOnButton = function(event){
 // Interactive Zone click or keypress event 
 const buttonClick = function(){
     btns = document.querySelectorAll(".calcBtn");
-    console.log(btns);
     btns.forEach(element => {
         element.addEventListener("click",handleClickOnButton);
     } )
