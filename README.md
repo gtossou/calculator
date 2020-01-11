@@ -1,12 +1,18 @@
-## Vanilla TO DO APP
+## Vanilla Calculator + CSS Grid
 
-**_TO DO app in Vanilla Javascript and HTML + CSS_**
+**_Calculator app in Vanilla Javascript and HTML + CSS_**
 
 ![TO DO app](./img/example.jpg)
 
 ### Summary
 
-Second app done in my roadmap to become a fullstack web developper.
-You can create, mark as complete and delete a task.
+Third app done in my roadmap to become a fullstack web developper.
+This is a simple calculator with basic operators, memory and reset functions.
 
-I learned a lot during the development of the app. Some of the concepts i used are closures and data persisting with Local Storage.
+As you add operators in the operations zone, the result will show automatically. This calculation method doesn't use **eval()** function (which is not recommended). It works but i think the logic can be greatly improved.
+
+If you click on **=** button, you also get the result but this time the underlying method used is **eval()**.
+
+Also ,i've always been very bad in front end layout. This time i learned the fundamentals of CSS Grid and now i'm more confident in building more organized and beautiful layouts.
+
+:)
