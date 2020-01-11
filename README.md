@@ -13,6 +13,6 @@ As you add operators in the operations zone, the result will show automatically.
 
 If you click on **=** button, you also get the result but this time the underlying method used is **eval()**.
 
-Also ,i've always been very bad in front end layout. This time i learned the fundamentals of CSS Grid and now i'm more confident in building more organized and beautiful layouts.
+Also ,i've always been very bad in front end layout. This time i learned the fundamentals of **CSS Grid** and now i'm more confident in building more organized and beautiful layouts.
 
 :)

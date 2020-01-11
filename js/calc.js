@@ -150,11 +150,15 @@ const handleClickOnButton = function(event){
         //If there is already an intermediary result
         else{
             const splitted = inputCurrentValue.split(/[+-/*]+/);
+            console.log(splitted);
             lastValue = splitted[splitted.length-2];
+            console.log(lastValue);
             lastOperator = inputCurrentValue[(inputCurrentValue.length-1) - (lastValue.length+1)];
             parsedCurrentResult = parseFloat(resultCurrentValue.innerText);
             lastValue = lastValue.replace(/@/g,".");
-            lastValue = parseFloat(splitted[splitted.length-2]);
+            console.log(lastValue);
+            lastValue = parseFloat(lastValue);
+            console.log(lastValue);
             switch (lastOperator){
                 case "*":
                     resultCurrentValue.innerText = parseFloat(parsedCurrentResult*lastValue);
