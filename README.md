@@ -2,6 +2,8 @@
 
 **_Calculator app in Vanilla Javascript and HTML + CSS_**
 
+Demo [here](http://mastermind-calculator.herokuapp.com/)
+
 ![TO DO app](./img/example.jpg)
 
 ### Summary
@@ -15,4 +17,9 @@ If you click on **=** button, you also get the result but this time the underlyi
 
 Also ,i've always been very bad in front end layout. This time i learned the fundamentals of **CSS Grid** and now i'm more confident in building more organized and beautiful layouts.
 
-:)
+
+### Author
+
+**_Gilchrist TOSSOU_** - Full stack web developer/ data engineer [LinkedIn](https://linkedin.com/in/gilchrist-tossou-a9663743/)
+
+
