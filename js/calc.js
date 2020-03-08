@@ -1,23 +1,26 @@
 calcBtnValList = ["MR", "M+", "M-", "AC", "7", "8", "9", "/", "6", "5", "4", "*", "3", "2", "1", "-", "0", ".", "=", "+"];
-const excepts = ["MR", "M+", "M-", "AC"];
 const operators = ["/", "*", "+", "-"];
 
-// handle click on buttons
-const handleClickOnButton = function (event) {
+// AC button handling
+const acButton = document.querySelector("#btn-ac");
+acButton.addEventListener("click", function (e) {
+    let clickedValue = e.currentTarget;
+    document.querySelector(".input-operation").value = "";
+    document.querySelector(".result-zone").innerText = "";
+}
+)
 
-    let clickedValue = event.currentTarget;
+const memoryButtons = document.querySelectorAll(".memory-btn");
+memoryButtons.forEach(function (memoryBtn) {
+    memoryBtn.addEventListener("click", function (e) {
+        let clickedValue = e.currentTarget;
 
-    // Memory and reset buttons click handling
-    if (excepts.includes(clickedValue.dataset.value)) {
-
-        if (clickedValue.dataset.value === "AC") {
-            document.querySelector(".inputOperation").value = "";
-            document.querySelector(".resultZone").innerText = "";
-        }
+        // Memory buttons click handling
 
         if (clickedValue.dataset.value === "M+") {
 
-            addInMem();
+            const tempMem = parseFloat(document.querySelector(".result-zone").innerText || "");
+        localStorage.setItem("memory", tempMem);
 
         }
         if (clickedValue.dataset.value === "M-") {
@@ -28,30 +31,25 @@ const handleClickOnButton = function (event) {
             if (isNaN(tempMem)) {
                 tempMem = "";
             }
-            document.querySelector(".inputOperation").value = tempMem;
-            document.querySelector(".resultZone").innerText = "";
+            document.querySelector(".input-operation").value = tempMem;
+            document.querySelector(".result-zone").innerText = "";
         }
 
-    }
+    })
+})
 
-    //handling equal button click 
-    else if (clickedValue.dataset.value === "=") {
-        const inputCurrentValue = document.querySelector(".inputOperation").value;
-
-        //eval must be replaced
-        result = eval(inputCurrentValue);
-        document.querySelector(".resultZone").innerText = result;
-    }
-
-    // 
-    else if (operators.includes(clickedValue.dataset.value)) {
-        document.querySelector(".inputOperation").value += clickedValue.dataset.value;
-        let inputCurrentValue = document.querySelector(".inputOperation").value;
-
+const operatorButtons = document.querySelectorAll(".operator-btn")
+operatorButtons.forEach(function (operatorBtn) {
+    operatorBtn.addEventListener("click", function (e) {
+        let clickedValue = e.currentTarget;
+        if (clickedValue.dataset.value!="="){
+            document.querySelector(".input-operation").value += clickedValue.dataset.value;
+        }
+        let inputCurrentValue = document.querySelector(".input-operation").value;
         //handling dot for regexp 
 
         inputCurrentValue = inputCurrentValue.replace(/\./g, "@")
-        let resultCurrentValue = document.querySelector(".resultZone");
+        let resultCurrentValue = document.querySelector(".result-zone");
 
         // In case there is no result in resultZone
         if (isNaN(resultCurrentValue.innerText) || resultCurrentValue.innerText === "") {
@@ -60,9 +58,16 @@ const handleClickOnButton = function (event) {
             splitted = splitted.map(element => element.replace(/@/g, "."));
             //As soon as there is 4 elements in inputOperation Zone
             if (splitted.length === 3) {
+                splitted[0] = parseFloat(splitted[0])
+                splitted[1] = parseFloat(splitted[1])
+
+                if (clickedValue.dataset.value!="="){
+                    document.querySelector(".input-operation").value += clickedValue.dataset.value;
+                }
+                
                 switch (lastOperator) {
                     case "*":
-                        console.log(parseFloat(splitted[0] * splitted[1]));
+                        // console.log(parseFloat(splitted[0] * splitted[1]));
                         resultCurrentValue.innerText = parseFloat(splitted[0] * splitted[1]);
                         break;
                     case "/":
@@ -77,10 +82,9 @@ const handleClickOnButton = function (event) {
                 }
             }
         }
-
         //If there is already an intermediary result
         else {
-            const splitted = inputCurrentValue.split(/[+-/*]+/);
+            splitted = inputCurrentValue.split(/[+-/*]+/);
             lastValue = splitted[splitted.length - 2];
             lastOperator = inputCurrentValue[(inputCurrentValue.length - 1) - (lastValue.length + 1)];
             parsedCurrentResult = parseFloat(resultCurrentValue.innerText);
@@ -101,28 +105,17 @@ const handleClickOnButton = function (event) {
                     break;
             }
 
+
         }
-    }
-    //add buttons clicked value in operationZone
-    else {
-        document.querySelector(".inputOperation").value += clickedValue.dataset.value;
-    }
-
-}
-
-function addInMem() {
-
-    const tempMem = parseFloat(document.querySelector(".resultZone").innerText || "");
-    localStorage.setItem("memory", tempMem);
-    // console.log(parseFloat(localStorage.getItem("memory") || ""));
-}
-
-// Interactive Zone click or keypress event 
-const buttonClick = function () {
-    btns = document.querySelectorAll(".calcBtn");
-    btns.forEach(element => {
-        element.addEventListener("click", handleClickOnButton);
     })
-}
+});
 
-buttonClick();
+const buttons = document.querySelectorAll(".calc-btn");
+buttons.forEach(element => {
+    element.addEventListener("click", function (e) {
+        let clickedValue = event.currentTarget;
+        document.querySelector(".input-operation").value += clickedValue.dataset.value;
+    })
+})
+
+

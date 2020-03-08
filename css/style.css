@@ -12,14 +12,14 @@
 	font-family: "Orbitron";
 }
 
-.leftDiv{
+.left-div{
 	display: grid;
 	grid-row-start: 1;
 	grid-row-end: 3;
 	visibility: hidden;
 }
 
-.rightDiv{
+.right-div{
 	display: grid;
 	grid-column-start: 3;
 	grid-row-start: 1;
@@ -27,7 +27,7 @@
 	visibility: hidden;
 }
 
-.interactiveZone{
+.interactive-zone{
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr 1fr;
 	grid-column-start: 2;
@@ -42,7 +42,7 @@
 	background: azure;
 }
 
-.viewZone{
+.view-zone{
 	display: grid;	
 	font-weight: bold;
 	justify-items: right;
@@ -51,14 +51,15 @@
 	row-gap: 10px;
 }
 
-.calcBtn{
+.calc-btn, .operator-btn, .memory-btn{
 	background-color:#dfe1e5;
 	font-size: 30px;
 	height: 40px;
 	width: 80px;
 	border-radius: 5px;
 } 
-.inputOperation{
+
+.input-operation{
 	text-align: right;
 	width: 700px;
 	height: 40px;
@@ -71,7 +72,7 @@
 	font-family: "Orbitron";
 }
 
-.resultZone{
+.result-zone{
 	height: 50px;
 	text-align: right;
 	margin: 10px 60px 10px 50px;
@@ -81,6 +82,6 @@
 	text-shadow: 1px 1px 2px aquamarine;
 }
 
-#btn_\=s{
+#btn-equal{
 	background-color: aquamarine;
 }
